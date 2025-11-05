@@ -12,6 +12,16 @@ mvn package
 java -jar .\target\log4j2-tryout-1.0-SNAPSHOT-jar-with-dependencies.jar
 ----
 
+On capturing standard output in jUnig: https://docs.junit.org/current/user-guide/#running-tests-capturing-output.
+
+== What have I found out
+
+=== Don't use `core.LoggerContext` in tests
+
+Instantiated objects use different ones than the test uses.
+But all instantiated objects use the same among themselves.
+Only the test's `LoggerContext` is a different one.
+
 == Dev-related
 
 === JShell
