@@ -5,9 +5,12 @@ import java.net.URI;
 import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.Configuration;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import com.rbenes.log4j2tryout.SomeTool;
@@ -15,11 +18,19 @@ import com.rbenes.log4j2tryout.SomeTool;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestAndSomeToolTest {
 
+    @BeforeEach
+    void beforeEach(TestInfo ti) {
+        System.out.println("--- " + ti.getTestMethod().get().getName());
+    }
+
+    @AfterEach
+    void afterEach() {
+        System.out.println();
+    }
+
     @Test
     @Order(0)
     void objectInstanceEquality() {
-
-        System.out.println("--- objectInstanceEquality");
 
         var someTool1 = new SomeTool(10);
         var someTool2 = new SomeTool(10);
@@ -31,8 +42,6 @@ public class TestAndSomeToolTest {
     @Test
     @Order(1)
     void isThereASingleRootLogger() {
-
-        System.out.println("--- isThereASingleRootLogger");
 
         var lcRootLogger = LoggerContext.getContext().getRootLogger();
 
@@ -49,8 +58,6 @@ public class TestAndSomeToolTest {
     @Order(2)
     void isThereASingleLoggerContext() {
 
-        System.out.println("--- isThereASingleLoggerContext");
-
         LoggerContext lcCtx = LoggerContext.getContext();
 
         SomeTool st = new SomeTool(50);
@@ -65,8 +72,6 @@ public class TestAndSomeToolTest {
     @Test
     @Order(3)
     void isThereASingleConfig() {
-
-        System.out.println("--- isThereASingleConfig");
 
         Configuration lcCfg = LoggerContext.getContext().getConfiguration();
 
@@ -84,8 +89,6 @@ public class TestAndSomeToolTest {
     @Test
     @Order(4)
     void isThereASingleConfigLocation() {
-
-        System.out.println("--- isThereASingleConfigLocation");
 
         URI lcCfgLoc = LoggerContext.getContext().getConfigLocation();
 

@@ -8,7 +8,6 @@ import org.apache.logging.log4j.core.appender.OutputStreamAppender;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -40,6 +39,8 @@ public class ProgramaticallyAddedAppendersTest {
 
     @AfterEach
     void afterEach() {
+
+        System.out.println();
 
         configuration.getAppenders().remove(ADDED_APPENDER_NAME);
         loggerContext.reconfigure();
