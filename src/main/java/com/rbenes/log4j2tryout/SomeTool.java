@@ -19,6 +19,10 @@ public class SomeTool {
         log.info("This costed {}", toolPrice);
     }
 
+    public void runWithCurrency(String currency) {
+        log.info("This costed {} {}s", toolPrice, currency);
+    }    
+
     public Logger getLog() {
         return log;
     }
