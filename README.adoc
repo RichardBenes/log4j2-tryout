@@ -1,0 +1,50 @@
+= Log4J2 - trying out
+
+I came to a conclusion that it would be worth it having a separate project just to try out Log4J2-related stuff.
+
+So this is it.
+
+This is also not a bad starting template for a typical Java Maven project.
+
+[source,powershell]
+----
+mvn package
+java -jar .\target\log4j2-tryout-1.0-SNAPSHOT-jar-with-dependencies.jar
+----
+
+== Dev-related
+
+=== JShell
+
+I tried using https://github.com/johnpoth/jshell-maven-plugin[`jshell-maven-plugin`]
+so I could familiarize myself interactively with APIs I use.
+It proved to be quite useful -- it prepares the JShell REPL with all the dependencies
+from `pom.xml` loaded and ready to be imported.
+
+The command to launch it is:
+
+[source,powershell]
+----
+mvn jshell:run
+----
+
+=== Code coverage
+
+Just run
+
+[source, powershell]
+----
+mvn test
+mvn jacoco:report
+----
+
+and then open the `/target/site/jacoco/index.html`.
+
+To see coverage provided by a single test, run:
+
+[source,powershell]
+----
+mvn clean test -Dtest=EnhancedCellTest
+mvn jacoco:report
+----
+
