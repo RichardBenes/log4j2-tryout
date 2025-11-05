@@ -9,7 +9,7 @@ This is also not a bad starting template for a typical Java Maven project.
 [source,powershell]
 ----
 mvn package
-java -jar .\target\log4j2-tryout-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar .\target\log4j2-tryout-1.0-SNAPSHOT.jar
 ----
 
 == Dev-related

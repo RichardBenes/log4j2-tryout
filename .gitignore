@@ -1,2 +1,4 @@
 target/
 dependencies.txt
+log.json
+log.jsonlines

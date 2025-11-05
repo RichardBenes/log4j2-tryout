@@ -7,20 +7,18 @@
 
   <Appenders>
     <Console name="CONSOLE_FULL">
-      <PatternLayout pattern="%5p %20c{1.} [%4t] - %m%n"/>
+      <PatternLayout pattern="%5p %20c{1.} [%4t] (%marker) - %m%n"/>
     </Console>
-    <Console name="CONSOLE_SHORT">
-      <PatternLayout pattern="%m%n"/>
-    </Console>    
+    <Console name="CONSOLE_JSON">
+      <JsonTemplateLayout />
+    </Console>
   </Appenders>
 
   <Loggers>
-    <Root level="INFO">
-      <AppenderRef ref="CONSOLE_SHORT"/>
+    <Root level="DEBUG">
+      <AppenderRef ref="CONSOLE_FULL"/>
+      <AppenderRef ref="CONSOLE_JSON"/>
     </Root>
-    <!-- <Logger name="com.rbenes" level="DEBUG"> 
-      <AppenderRef ref="CONSOLE_FULL" />
-    </Logger> -->
   </Loggers>
 
 </Configuration>
